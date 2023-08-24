@@ -1,0 +1,18 @@
+{% load static %}
+
+{% include 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+    <title>Joy Photography</title>
+</head>
+<body>
+    {% block content %}
+
+    {% endblock content%}
+</body>
+</html>

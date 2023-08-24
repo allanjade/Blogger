@@ -1,0 +1,54 @@
+{% load static %}
+
+    <div class="wrapper row1">
+        <header id="header" class="hoc clear"> 
+          <!-- ################################################################################################ -->
+          <div id="logo" class="fl_left">
+            <h1><a href="index.html">Joy Photography</a></h1>
+          </div>
+          <nav id="mainav" class="fl_right">
+            <ul class="clear">
+              <li class="active"><a href="{%url 'home'%}">Home</a></li>
+              <li><a class="drop" href="#">Explore</a>
+                <ul>
+                  <li><a href="{%url 'profile' %}">About Me</a></li>
+                  {% if request.user.is_authenticated and user.user_type == 'admin'%}
+                  <li><a href="{% url 'admin' %}">Posts</a></li>
+                  {% endif %}
+                </ul>
+              </li>
+              <li><a class="drop" href="#">Account</a>
+                <ul>
+                    {% if request.user.is_authenticated %} 
+                    <li><a href="#">{{request.user}}</a></li>
+                    <li><a href="{% url 'logoutUser' %}">Sign Out</a></li>
+                    
+                    {% else %}
+                  <li><a href="{% url 'signin' %}">Login</a></li>
+                  {% endif %}
+                 
+                </ul>
+              </li>
+              <li><a href="#blog" class="smooth-scroll">Blog</a></li>
+            </ul>
+          </nav>
+          <!-- ################################################################################################ -->
+        </header>
+
+
+        <script>
+          // Smooth scroll to section when navigation link is clicked
+          document.querySelectorAll(".smooth-scroll").forEach(link => {
+            link.addEventListener("click", function(event) {
+              event.preventDefault();
+          
+              var targetId = link.getAttribute("href");
+              var targetElement = document.querySelector(targetId);
+          
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            });
+          });
+          </script>
+      </div>
