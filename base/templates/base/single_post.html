@@ -1,0 +1,146 @@
+{% extends 'main.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="">
+
+<head>
+<title>Joy Photography</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+{% block content %}
+<body id="top">
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+<div class="admin-dashboard">
+
+   <div>
+    <ul>
+  <a href="{{request.META.HTTP_REFFER}}"><button>Back</button></a> <br><br>
+       <li>
+    <a href="#">
+        {% if request.user.user_type == 'admin' %}
+        <a href="{% url 'post_update' postinfo.id %}"><i class="fa fa-edit" title="update"></i></a> 
+      
+        <a href="#"><i class="fa fa-fi" title="thrash"></i></a> 
+         <a href="#"><i class="fa fa-fi" title="thrash"></i></a>
+         
+        <a href="{% url 'post_delete' postinfo.id %}"><i class="fa fa-trash" title="trash"></i></a> 
+        {% endif %}
+        <h4>{{postinfo.title}}   
+        <img src="{{postinfo.image.url}}" alt="{{post.title}} image">
+        </h4> <i class="fa fa-user"></i> <small>{{postinfo.poster.user_type}}</small>   <i class="fa fa-calendar"></i> <small>{{postinfo.created}}</small>
+        <p>{{postinfo.description}}</p>
+        
+       </li>
+    </a>
+
+    </ul>
+   </div>
+  
+</div>
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-80">
+    <!-- ################################################################################################ -->
+
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay coloured" style="background-image:url('images/demo/backgrounds/02.png');">
+  <article class="hoc cta clear"> 
+    <!-- ################################################################################################ -->
+    <h6 class="three_quarter first">Moments Frozen in Time</h6>
+    <footer class="one_quarter"><a class="btn" href="#">Let's Chat &raquo;</a></footer>
+    <!-- ################################################################################################ -->
+  </article>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_quarter first">
+      <h6 class="heading">Location</h6>
+      <ul class="nospace btmspace-30 linklist contact">
+        <li><i class="fa fa-map-marker"></i>
+          <address>
+          2309-00100 &amp; westhill Nairobi
+          </address>
+        </li>
+        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+        <li><i class="fa fa-envelope-o"></i> info@joyphotography.com</li>
+      </ul>
+      <ul class="faico clear">
+        <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Quick links</h6>
+      <ul class="nospace linklist">
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Join me</h6>
+      <ul class="nospace linklist">
+        <li><a href="#">Send Request</a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">News letter</h6>
+      <p class="nospace btmspace-15">Subscribe to my news letter to get new daily blogs instantly.</p>
+      <form method="post" action="#">
+        <fieldset>
+          <legend>Newsletter:</legend>
+          <input class="btmspace-15" type="text" value="" placeholder="Name">
+          <input class="btmspace-15" type="text" value="" placeholder="Email">
+          <button type="submit" value="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy;  - All Rights Reserved - <a href="#">Joy Photography</a></p>
+    
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{% static 'scripts/jquery.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'scripts/jquery.mobilemenu.js' %}"></script>
+<script src="{% static 'scripts/jquery.flexslider-min.js' %}"></script>
+</body>
+
+{% endblock content %}
+</html>

@@ -1,0 +1,236 @@
+{% extends 'main.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<title>Joy Photography</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+{% block content %}
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay light" style="background-image: url('{% static 'images/head_bg.jpg' %}');"> 
+  <!-- ################################################################################################ -->
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="flexslider basicslider">
+      <ul class="slides">
+        <li>
+          <article>
+            <p>Welcome to</p>
+            <h3 class="heading">Joy Photography</h3>
+            <p>Shaping Light, Painting Stories</p>
+   
+          </article>
+        </li>
+        <li>
+          <article>
+            <p>Laoreet</p>
+            <h3 class="heading">Iaculis interdum</h3>
+            <p>Nulla scelerisque posuere convallis</p>
+            <footer>
+              <form class="group" method="post" action="#">
+                <fieldset>
+                  <legend>Sign-Up:</legend>
+                  <input type="email" value="" placeholder="Email Here&hellip;">
+                  <button class="fa fa-sign-in" type="submit" title="Submit"><em>Submit</em></button>
+                </fieldset>
+              </form>
+            </footer>
+          </article>
+        </li>
+        <li>
+          <article>
+            <p>Phasellus</p>
+            <h3 class="heading">Bibendum blandit</h3>
+            <p>Lacus non tincidunt class aptent taciti sociosqu</p>
+            <footer><a class="btn inverse" href="#">Litora torquent</a></footer>
+          </article>
+        </li>
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper">
+  <div class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <figure id="introblocks">
+       {% for three in lastthree %}
+      <ul  >
+       
+      <a href="{% url 'one_post' three.id %}">
+        <li class="one_third first">
+          <img src="{{three.image.url}}" alt="">
+          <small><i class="fa fa-calendar"></i> {{three.created}}</small>
+        </a>
+       
+        </ul>
+       {% endfor %}
+        <!-- <li class="one_third"><a href="#"><img src="{%static 'images/head_bg.jpg' %}" alt=""></a></li>
+        <li class="one_third"><a href="#"><img src="{%static 'images/head_bg.jpg' %}" alt=""></a></li> -->
+      </div>
+      
+    </figure>
+    <p class="center"><a class="btn" href="#">Read more</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <article class="group btmspace-80">
+      {% for last in recent %}
+      <a href="{% url 'one_post' last.id %}">
+      <div class="two_third first"><img class="borderedbox inspace-10" src="{{last.image.url}}" alt=""></div>
+      <div class="one_third">
+        <h6 class="heading">{{last.title}}</h6>
+        <ul class="nospace meta">
+          <li><i class="fa fa-user"></i> <a href="#">{{last.poster.user_type}}</a></li>
+          <li><i class="fa fa-calendar"></i> <a href="#">{{last.created}}</a></li>
+        </ul>
+        <p>{{last.description|truncatewords_html:20}}</p>
+        <footer class="nospace"><a class="btn" href="#">Full Story &raquo;</a></footer>
+      </a>
+      </div>
+      {% endfor %}
+    </article>
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-80">
+    <h5 id="blog">New articles</h5>
+    <!-- ################################################################################################ -->
+    {% for single in allposts %}
+    <ul class="">
+      <a href="{%url 'one_post' single.id %}">
+       <li class="one_third">
+        <article><a href="{%url 'one_post' single.id %}"><img src="{{single.image.url}}" alt=""></a>
+          <h6 class="heading">{{single.title}}</h6>
+          <ul class="nospace meta">
+            <li><i class="fa fa-user"></i> <a href="#">Admin</a></li>
+            <li><i class="fa fa-calendar"></i> <a href="#">{{single.created}}</a></li>
+          </ul>
+          <p>{{single.description|truncatewords_html:20}}</p>
+          <footer class="nospace"><a class="btn" href="{%url 'one_post' single.id %}">Full Story &raquo;</a></footer>
+        </article>
+      </li>
+    </a>
+    </ul>
+    {% endfor %}
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay coloured" style="background-image:url('images/demo/backgrounds/02.png');">
+  <article class="hoc cta clear"> 
+    <!-- ################################################################################################ -->
+    <h6 class="three_quarter first">Moments Frozen in Time</h6>
+    <footer class="one_quarter"><a class="btn" href="#">Let's Chat &raquo;</a></footer>
+    <!-- ################################################################################################ -->
+  </article>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_quarter first">
+      <h6 class="heading">Location</h6>
+      <ul class="nospace btmspace-30 linklist contact">
+        <li><i class="fa fa-map-marker"></i>
+          <address>
+          2309-00100 &amp; westhill Nairobi
+          </address>
+        </li>
+        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+        <li><i class="fa fa-envelope-o"></i> info@joyphotography.com</li>
+      </ul>
+      <ul class="faico clear">
+        <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Quick links</h6>
+      <ul class="nospace linklist">
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Join me</h6>
+      <ul class="nospace linklist">
+        <li><a href="#">Send Request</a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">News letter</h6>
+      <p class="nospace btmspace-15">Subscribe to my news letter to get new daily blogs instantly.</p>
+      <form method="post" action="#">
+        <fieldset>
+          <legend>Newsletter:</legend>
+          <input class="btmspace-15" type="text" value="" placeholder="Name">
+          <input class="btmspace-15" type="text" value="" placeholder="Email">
+          <button  value="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy;  - All Rights Reserved - <a href="#">Joy Photography</a></p>
+    
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{% static 'scripts/jquery.min.js' %}"></script>
+<script src="{% static 'scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'scripts/jquery.mobilemenu.js' %}"></script>
+<script src="{% static 'scripts/jquery.flexslider-min.js' %}"></script>
+
+
+
+
+</body>
+
+{% endblock content %}
+</html>
